@@ -3,6 +3,8 @@
   --secondary-color: #fef08a;
   --tertiary-color: #fefce8;
   background-color: var(--tertiary-color);
+  font-family: "Bebas Neue", "Courier New", Courier, monospace;
+  letter-spacing: 0.2rem;
 }
 
 .game-div {
