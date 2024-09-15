@@ -8,13 +8,10 @@ async function getImgSrc(s) {
         .then(resolve => resolve)
 }
 
-async function getCards() {
-    const cards = [SPORTS.map((value, index) => {
+export async function getCards() {
+    const cards = SPORTS.map((value, index) => {
         return {id: index, url: getImgSrc(value).then(response => response)}}
-    )]
-    cards.push({url: new Promise((resolve) => setTimeout(resolve, 5000))})
+    )
     await Promise.all(cards.map(card => card.url))
     return cards
 }
-
-console.log(await getCards())
