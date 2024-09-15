@@ -16,6 +16,7 @@ export async function getCards() {
     return cards
 }
 
+// Used for shuffling card grid, 
 export function shuffle(arr) {
     for (let i = 0; i < arr.length; i++) {
         const temp = arr[i]
