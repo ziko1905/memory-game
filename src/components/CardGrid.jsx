@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { getCards } from "../fetchImages";
+import { getCards, shuffle } from "../fetchImages";
 import placeHolderImg from "../assets/placeholder-image.png"
 import "../styles/CardGrid.css"
 
@@ -16,7 +16,8 @@ function CardGridLoader () {
 
     useEffect(() => {
         getCards().then(response => {
-            setCards(response)
+            console.log(shuffle(response))
+            setCards(shuffle(response))
         })
     }, [])
 
@@ -35,7 +36,6 @@ function Card({url, alt}) {
 
     useEffect(() => {
         url.then(resolve => {
-                console.log(resolve)
                 if (resolve.meta.status === 200) setImgSrc(resolve.data.images.fixed_width.url)
             })
     }, [url])

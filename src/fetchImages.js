@@ -15,3 +15,14 @@ export async function getCards() {
     await Promise.all(cards.map(card => card.url))
     return cards
 }
+
+export function shuffle(arr) {
+    for (let i = 0; i < arr.length; i++) {
+        const temp = arr[i]
+        const newI = Math.floor(Math.random() * arr.length)
+        arr[i] = arr[newI]
+        arr[newI] = temp
+        
+    }
+    return arr
+}
