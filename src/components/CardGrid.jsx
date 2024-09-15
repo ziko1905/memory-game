@@ -3,15 +3,7 @@ import { getCards, shuffle } from "../fetchImages";
 import placeHolderImg from "../assets/placeholder-image.png"
 import "../styles/CardGrid.css"
 
-export function CardGrid() {
-    const [selected, setSelected] = useState(new Set())
-
-    return (
-        <CardGridLoader />
-    )
-}
-
-function CardGridLoader () {
+export function CardGrid({callBack}) {
     const [cards, setCards] = useState([])
 
     useEffect(() => {
@@ -24,14 +16,14 @@ function CardGridLoader () {
     return (
         <div className="card-grid">
             {cards.map(card => {
-                return <Card key={card.id} url={card.url} alt={card.alt}/>
+                return <Card callBack={() => callBack(card.id)} key={card.id} url={card.url} alt={card.alt}/>
                 }
             )}
         </div>
     )
 }
 
-function Card({url, alt}) {
+function Card({url, alt, callBack}) {
     const [imgSrc, setImgSrc] = useState(placeHolderImg)
 
     useEffect(() => {
@@ -40,7 +32,7 @@ function Card({url, alt}) {
             })
     }, [url])
 
-    return (<button className="card">
+    return (<button onClick={callBack} className="card">
             <img src={imgSrc} alt={alt}/>
         </button>
     )
