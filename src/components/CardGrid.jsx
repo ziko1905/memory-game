@@ -23,14 +23,14 @@ function CardGridLoader () {
     return (
         <div className="card-grid">
             {cards.map(card => {
-                return <Card key={card.id} url={card.url}/>
+                return <Card key={card.id} url={card.url} alt={card.alt}/>
                 }
             )}
         </div>
     )
 }
 
-function Card({url}) {
+function Card({url, alt}) {
     const [imgSrc, setImgSrc] = useState(placeHolderImg)
 
     // useEffect(() => {
@@ -40,8 +40,8 @@ function Card({url}) {
     //         })
     // }, [url])
 
-    return (<div className="card">
-            <img src={imgSrc} alt=""/>
-        </div>
+    return (<button className="card">
+            <img src={imgSrc} alt={alt}/>
+        </button>
     )
 }

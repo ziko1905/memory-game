@@ -1,4 +1,4 @@
-const SPORTS = ['tennis', 'football', 'basketball', 'skiing', 'mtb', 'surfing', 'boxing', 'swimming', 'running', 'hockey', '8 ball', 'horse racing']
+const SPORTS = ['Tennis', 'Football', 'Basketball', 'Skiing', 'Mtb', 'Surfing', 'Boxing', 'Swimming', 'Running', 'Hockey', '8 ball', 'Horse racing']
 const API_KEY = 'hQDKrYtq5inxyRKMHrVnMNxxpHaZ01Y6'
 
 
@@ -10,7 +10,7 @@ async function getImgSrc(s) {
 
 export async function getCards() {
     const cards = SPORTS.map((value, index) => {
-        return {id: index, url: getImgSrc(value).then(response => response)}}
+        return {alt: value, id: index, url: getImgSrc(value).then(response => response)}}
     )
     await Promise.all(cards.map(card => card.url))
     return cards
