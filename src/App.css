@@ -1,0 +1,10 @@
+:root {
+  --primary-color: #fde047;
+  --secondary-color: #fef08a;
+  --tertiary-color: #fefce8;
+  background-color: var(--tertiary-color);
+}
+
+.game-div {
+  min-height: 100svh;
+}

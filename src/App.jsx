@@ -6,8 +6,8 @@ import { CardGrid } from './components/CardGrid.jsx'
 export function App() {
   console.log("App opened")
   return (
-    <>
+    <div className="game-div">
       <CardGrid />
-    </>
+    </div>
   )
 }

@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { getCards } from "../fetchImages";
 import placeHolderImg from "../assets/placeholder-image.png"
+import "../styles/CardGrid.css"
 
 export function CardGrid() {
     const [selected, setSelected] = useState(new Set())
@@ -20,7 +21,7 @@ function CardGridLoader () {
     }, [])
 
     return (
-        <div className="cardGrid">
+        <div className="card-grid">
             {cards.map(card => {
                 return <Card key={card.id} url={card.url}/>
                 }

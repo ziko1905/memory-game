@@ -1,0 +1,5 @@
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  height: 60%;
+}
