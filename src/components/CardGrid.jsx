@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { getCards } from "../fetchImages";
-
+import placeHolderImg from "../assets/placeholder-image.png"
 
 export function CardGrid() {
     const [selected, setSelected] = useState(new Set())
@@ -30,16 +30,14 @@ function CardGridLoader () {
 }
 
 function Card({url}) {
-    const [imgSrc, setImgSrc] = useState("defualt")
+    const [imgSrc, setImgSrc] = useState(placeHolderImg)
 
-    console.log(url, "init url")
-    useEffect(() => {
-        url.then(resolve => {
-            setImgSrc(resolve.meta.msg)
-            console.log(resolve.meta.msg)
-            }
-            )
-    }, [url])
+    // useEffect(() => {
+    //     url.then(resolve => {
+    //             console.log(resolve)
+    //             if (resolve.meta.status === 200) setImgSrc(resolve.data.images.original.url)
+    //         })
+    // }, [url])
 
     return (<div className="card">
             <img src={imgSrc} alt=""/>
