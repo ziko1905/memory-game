@@ -16,7 +16,10 @@ export function CardGrid({callBack}) {
     return (
         <div className="card-grid">
             {cards.map(card => {
-                return <Card callBack={() => callBack(card.id)} key={card.id} url={card.url} alt={card.alt}/>
+                return <Card callBack={() => {
+                    setCards(shuffle(cards))
+                    callBack(card.id)
+                }} key={card.id} url={card.url} alt={card.alt}/>
                 }
             )}
         </div>
