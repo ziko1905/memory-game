@@ -21,8 +21,6 @@ export function App() {
       newSet.add(guess)
       setCurrCount(newCount)
       setSelected(newSet)
-
-      if (newCount > maxCount) setMaxCount(newCount)
     } else handleReset()
   }
 
