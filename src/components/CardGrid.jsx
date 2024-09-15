@@ -33,12 +33,12 @@ function CardGridLoader () {
 function Card({url, alt}) {
     const [imgSrc, setImgSrc] = useState(placeHolderImg)
 
-    // useEffect(() => {
-    //     url.then(resolve => {
-    //             console.log(resolve)
-    //             if (resolve.meta.status === 200) setImgSrc(resolve.data.images.original.url)
-    //         })
-    // }, [url])
+    useEffect(() => {
+        url.then(resolve => {
+                console.log(resolve)
+                if (resolve.meta.status === 200) setImgSrc(resolve.data.images.fixed_width.url)
+            })
+    }, [url])
 
     return (<button className="card">
             <img src={imgSrc} alt={alt}/>
