@@ -18,19 +18,31 @@ function CardGridLoader () {
             setCards(response)
         })
     }, [])
+
     return (
         <div className="cardGrid">
             {cards.map(card => {
-                return <Card key={card.id}/>
+                return <Card key={card.id} url={card.url}/>
                 }
             )}
         </div>
     )
 }
 
-function Card() {
+function Card({url}) {
+    const [imgSrc, setImgSrc] = useState("defualt")
+
+    console.log(url, "init url")
+    useEffect(() => {
+        url.then(resolve => {
+            setImgSrc(resolve.meta.msg)
+            console.log(resolve.meta.msg)
+            }
+            )
+    }, [url])
+
     return (<div className="card">
-            <img src="url" alt=""/>
+            <img src={imgSrc} alt=""/>
         </div>
     )
 }
