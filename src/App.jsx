@@ -26,7 +26,6 @@ export function App() {
     } else handleReset()
   }
 
-  console.log("App opened")
   return (
     <div className="game-div">
       <GameScore currScore={currCount}/>

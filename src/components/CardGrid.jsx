@@ -8,7 +8,6 @@ export function CardGrid({callBack}) {
 
     useEffect(() => {
         getCards().then(response => {
-            console.log(shuffle(response))
             setCards(shuffle(response))
         })
     }, [])
